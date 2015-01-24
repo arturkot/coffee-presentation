@@ -1,0 +1,70 @@
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center; }
+
+.my-section {
+  text-align: left;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  display: inline-block;
+  max-height: 200px;
+  width: 50%;
+  max-width: 320px;
+  padding: 20px;
+  vertical-align: top; }
+  .my-section-title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+    .my-section-title:after {
+      content: "";
+      width: 0px;
+      height: 0px;
+      border-bottom: 6px solid #4987CA;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle; }
+      .is-folded > .my-section-title:after {
+        border-bottom: 0 none;
+        border-top: 6px solid #4987CA; }
+  .my-section-body {
+    -webkit-transition-property: max-height, padding;
+            transition-property: max-height, padding;
+    -webkit-transition-duration: .2s;
+            transition-duration: .2s;
+    max-height: 200px;
+    padding: 10px 10px 30px;
+    color: #fff;
+    background: #4987ca;
+    overflow: hidden; }
+    .is-folded > .my-section-body {
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0; }
+    .my-section-body p {
+      margin-bottom: 10px; }
+    .my-section-body a {
+      transtion-property: transform, box-shadow;
+      -webkit-transition-duration: .2s;
+              transition-duration: .2s;
+      padding: 5px 10px;
+      display: inline-block;
+      background: #98bbe1;
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+      box-shadow: 0 4px 0 0 #275586; }
+      .my-section-body a:active {
+        -webkit-transform: translateY(4px);
+            -ms-transform: translateY(4px);
+                transform: translateY(4px);
+        box-shadow: 0 0 0 0 #275586; }
