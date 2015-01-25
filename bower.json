@@ -1,0 +1,26 @@
+{
+  "name": "coffee-presentation",
+  "version": "1.0.0",
+  "homepage": "https://github.com/arturkot/coffee-presentation",
+  "authors": [
+    "Artur Kot <arturkot85@gmail.com>"
+  ],
+  "description": "Presentation about Coffeescript for beginners",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fancybox": "~2.1.5",
+    "jquery": "~2.1.3",
+    "reset-css": "~2.0.20110126"
+  }
+}
