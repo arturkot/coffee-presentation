@@ -1,14 +1,14 @@
 do ($ = jQuery) ->
-  App =
-    $container: $ '.js-container'
+  class App
+    @$container: $ '.js-container'
 
-    init: ->
+    @init: =>
       $.getJSON 'data/data.json', (data) =>
         @buildSections(data)
         @initLightbox()
         @initAccordion()
 
-    buildSections: (data) ->
+    @buildSections: (data) ->
       return if @$container.length is 0
 
       markup = ""
@@ -26,7 +26,7 @@ do ($ = jQuery) ->
 
       @$container.append markup
 
-    initLightbox: ->
+    @initLightbox: ->
       $fancyLinks = $ '.js-fancybox'
 
       return if $fancyLinks.length is 0 or not $.fn.fancybox?
@@ -38,11 +38,10 @@ do ($ = jQuery) ->
             css:
               background: "rgba(37, 147, 206, 0.95)"
 
-    initAccordion: ->
+    @initAccordion: ->
       @$container.on 'click', '.js-accordion-trigger', ->
         $ this
           .closest '.js-accordion-container'
           .toggleClass 'is-folded'
 
-  $ ->
-    App.init()
+  $ App.init
