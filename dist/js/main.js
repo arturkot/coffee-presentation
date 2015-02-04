@@ -12,21 +12,22 @@
         });
       },
       buildSections: function(data) {
-        var $container, markup;
+        var $container, item, markup, title;
         markup = '';
         $container = App.$container;
         if ($container.length === 0) {
           return;
         }
-        $.each(data, function(title, item) {
+        for (title in data) {
+          item = data[title];
           markup += "<section class='js-accordion-container my-section is-folded'>";
           markup += " <h2 class='js-accordion-trigger my-section-title'>" + title + "</h2>";
           markup += " <div class='my-section-body'>";
           markup += "   <p>" + item.text + "<p>";
           markup += "   <a href='" + item.img + "' class='js-fancybox'>Open image</a>";
           markup += " </div>";
-          return markup += "</section>";
-        });
+          markup += "</section>";
+        }
         return $container.append(markup);
       },
       initLightbox: function() {

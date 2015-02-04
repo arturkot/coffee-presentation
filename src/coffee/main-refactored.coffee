@@ -44,5 +44,4 @@ do ($ = jQuery) ->
           .closest '.js-accordion-container'
           .toggleClass 'is-folded'
 
-  $ ->
-    App.init()
+  $ -> App.init()
