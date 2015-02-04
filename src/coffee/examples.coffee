@@ -13,43 +13,54 @@ console.clear()
 # * No semicolons necessary
 # * Variables are always declared at the top of the scope
 
-myFirstVar = "Hey! :)"
-myBoolVar = true
+# myFirstVar = "Hey! :)"
+# myBoolVar = true
 
 # * You may want to use window (in  browser environment) to define global variables
 
-window.myGlobalVar = "Hello world!"
+# window.myGlobalVar = "Hello world!"
 
 # Arrays and object literals
 # * Arrays look pretty much the same
 
-myArr = [1, 2, 3]
+# myArr = [1, 2, 3, 4, 5]
 
-# * Objects can be defined with braces, no commas necessary
+# * You can easily slice them
 
-myObjBraces = {
-  key1: 'val 1'
-  key2: {
-    nestedKey1: 'nested val 1'
-    nestedKey2: 'nested val 2'
-  }
-}
+# myNewArr = myArr[1..3]
+# console.log myNewArr
 
-# Braces are not required, though
+# * Objects can be defined with curly braces, no commas necessary
 
-myObj =
-  key1: 'val 1'
-  key2:
-    nestedKey1: 'nested val 1'
-    nestedKey2: 'nested val 2'
+# myObjBraces = {
+#   key1: 'val 1'
+#   key2: {
+#     nestedKey1: 'nested val 1'
+#     nestedKey2: 'nested val 2'
+#   }
+# }
+
+# Curly braces are not required, though
+
+# myObj =
+#   key1: 'val 1'
+#   key2:
+#     nestedKey1: 'nested val 1'
+#     nestedKey2: 'nested val 2'
 
 # * "function" stands for "->" in CS
 # * Functions are defined just like variables
 
 # myFunc = ->
-  # console.log("I'm a function! :)")
+#   console.log("I'm a function! :)")
 
-# * Braces with arguments are optional
+# function can also be written in one line
+
+# myOnelineFunc = -> console.log "One line func!"
+#
+# myOnelineFunc()
+
+# * Parentheses with arguments are optional
 
 # myFuncWithArgs = (arg1, arg2) ->
 #   console.log(arg1)
@@ -66,7 +77,7 @@ myObj =
 
 # * You can easily set default values for arguments
 
-# myFuncWithDefArgs = (arg1 = 1, arg2 = 2) ->
+# myFuncWithDefArgs = (arg1 = 'default', arg2 = 2) ->
 #   console.log arg1
 #   console.log arg2
 
@@ -77,7 +88,7 @@ myObj =
 
 # myFuncAdd = (a, b) -> a + b
 #
-# console.log myFuncAdd(1, 1)
+# console.log myFuncAdd(1, 5)
 
 # If you don't wan't to return anything just use... "return"
 
@@ -85,7 +96,7 @@ myObj =
 #   console.log "I'm not giving anything in return!"
 #   return
 
-# "do ->" is available in CS, it stands for self calling anonymous function
+# "do" keyword is available in CS, it stands for immediately-invoked function expression
 
 # do ->
 #   myVarWithinAScope = "I'm hidden in a scope. :)"
@@ -95,7 +106,7 @@ myObj =
 
 # Default arguments values in "do"
 
-# do (w = window) ->
+# do ($ = jQuery) ->
 #   console.log w
 #   console.log window
 
@@ -121,12 +132,16 @@ myObj =
 
 # And as the terenary operator
 
-# myTernaryVar = if myBoolVar then 0 else 1
+# myBoolVar = true
+#
+# myTerenaryVar = if myBoolVar then 0 else 1
+#
+# console.log myTerenaryVar
 
 # Aliases
 
 # myBoolVar = false
-
+#
 # if myBoolVar is false
 #   console.log "My bool var is false!"
 #
@@ -136,8 +151,10 @@ myObj =
 # Loops
 # * Use "for in" for arrays
 
+# myArr = [1, 2, 3]
+
 # for item in myArr
-  # console.log item
+#   console.log item
 
 # * Use "for of" for object literals
 
@@ -150,70 +167,110 @@ myObj =
 # myObj.key1 = 'val 1'
 # myObj.key2 = 'val 2'
 
+# myObj =
+#   key1: 'val 1'
+#   'some other key': 'value'
+#
 # for key, val of myObj
 #   console.log key
 #   console.log val
 
 # * Use [start..end] to iterate for a given number of times
 
-# for nr in [1..2]
-#   console.log nr
+# for nr in [1..4]
+#   console.log "Hello!"
 
-###
-  BREAK ;)
-  take a look at exemplary file
-###
+# BREAK ;)
+# take a look at exemplary file
+# main-vanilla.js
+# and main.coffee
 
 # * It's possible to use "@" instead of "this"
 
 # myApp =
-#   text: "FIRE",
+#   text: "FIRE"
+#
+#   init: ->
+#     myApp.fire()
+#
+#   fire: ->
+#     console.log myApp.text
+#
+# myApp.init()
+
+# myApp =
+#   text: "FIRE"
+#
+#   init: ->
+#     this.fire()
+#
+#   fire: ->
+#     console.log this.text
+
+# myApp.init()
+
+# myApp =
+#   text: "FIRE"
 #
 #   init: ->
 #     @fire()
 #
 #   fire: ->
 #     console.log @text
-#
+
 # myApp.init()
 
 # Comprehensions
 
+# myBoolVar = true
+#
 # console.log "A comprehension! :)" if myBoolVar
 
 # Comprehensions for loops
 
+# myArr = [1, 2, 3]
+
+# console.log myArr
+
 # logArrItems = (item) ->
-#   console.log item
-#
+  # console.log item
+
 # logArrItems item for item in myArr
 
+# console.log myArr
+#
 # incrementItems = (item) ->
-  # console.log "Original value is #{item}"
-  # console.log "Processed value is #{item + 1}"
-  # item + 1
-
+#   console.log "Original value is #{item}"
+#   console.log "Processed value is #{item + 1}"
+#   item + 1
+#
 # processedArr = (incrementItems item for item in myArr)
+#
+# console.log processedArr
 
 # A map method might be a better option, though
 
-# processedArr = myArr.map logArrItems
-
+# processedArr = myArr.map incrementItems
+#
 # console.log processedArr
 
 # On the other hand the comprehension can work for objects
 
+# myObj =
+#   someKey: 'some value'
+#   someOtherKey: 'some other value'
+
 # modifyObj = (key, val) ->
-#   key
-#
+#   [key, val]
+# #
 # processedObj = (modifyObj key, val for key, val of myObj)
-#
+# #
 # console.log processedObj
 
 # String interplation
-# myVar = "hi";
-# myInterpolatedVar = "Console is saying #{myVar}!"
-#
+# myVar = "lol"
+# myInterpolatedVar = "Console is saying #{myVar} #{myVar}!"
+
 # console.log myInterpolatedVar
 
 # Block strings – useful for writing markup
@@ -226,17 +283,90 @@ myObj =
 #
 # console.log myMarkupVar
 
+# The existential operator help you verify if variable exist
+
+# wtf = "YOLO!"
+
+# console.log wtf if wtf?
+
+# It works with objects too!
+
+# console.log "Works" if console?.log
+
+# BREAK ;)
+# take a look at exemplary file
+# main-refactored.js
+
+# Destructuring
+
+# * For arrays
+
+# myArr = [1, 2, 3]
+# [val1, val2, val3] = myArr
+# val1 = myArr[0]
+# val2 = myArr[1]
+# val3 = myArr[2]
+
+# console.log val1
+# console.log val2
+# console.log val3
+
+# * It's easy to get the first and the last value
+
+# longTextVar = "Some long text goes here!"
+#
+# [theFirstWord, ..., theLastWord] = longTextVar.split ' '
+#
+# console.log theFirstWord
+# console.log theLastWord
+
+# * For objects
+
+# {key1, key2} = myObj
+
+# key1 = myObj.key1
+# key2 = myObj.key2
+
+# console.log key1
+# console.log key2
+
 # It's possible to use the fat arrow for functions to preserve the context of "this"
 
-# $.getJSON 'data/data.json', (data) =>
+# $.getJSON 'data/data.json', (data) ->
 #   @buildSections(data)
 #   @initLightbox()
 #   @initAccordion()
 
-# The existential operator help you verify if variable exist
+# Classes!
 
-# console.log "YOLO!" if wtf?
-
-# It works with objects too!
-
-# console.log "Works" if myObj?.log
+# class MyClass
+#   privateMethod = (arg) ->
+#     console.log "I'm private but #{arg}"
+#
+#   constructor: (@prop1, @prop2) ->
+#
+#   publicMethod: ->
+#     privateMethod("in public method")
+#     console.log "I'm public!"
+#     console.log @prop1 if @prop1?
+#     console.log @prop2 if @prop2?
+#     console.log "==="
+#
+#   @staticMethod: ->
+#     privateMethod("in static method")
+#     console.log "I'm method!"
+#     console.log "==="
+#
+# myInstance = new MyClass('bam!')
+#
+# myInstance.publicMethod()
+# MyClass.staticMethod()
+#
+# class MyClonedClass extends MyClass
+#   publicMethod: ->
+#     super()
+#     console.log "I'm actually an extension. ;)"
+# #
+# myNewInstance = new MyClonedClass()
+# #
+# myNewInstance.publicMethod()
